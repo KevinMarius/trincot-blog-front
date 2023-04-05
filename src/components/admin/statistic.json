@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Users",
+        "icon": "bi-person-fill",
+        "quantity": 12
+    },
+    {
+        "name": "Posts",
+        "icon": "bi-journal-text",
+        "quantity": 12
+    },
+    {
+        "name": "Categories",
+        "icon": "bi-box-arrow-left",
+        "quantity": 22
+    }
+]

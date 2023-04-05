@@ -1,0 +1,18 @@
+.navbars {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(231, 231, 231, 0.849);
+    align-items: center;
+}
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+.btn .badge {
+    padding: 5px;
+}
+.dropdown {
+    margin: 0 10px;
+}
