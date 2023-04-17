@@ -5,8 +5,7 @@ const Button = props => {
   if (props.href) {
     return (
       <a
-        className={`button button--${props.size || 'default'} ${props.inverse &&
-            'button--inverse'} ${props.danger && 'button button-danger'}`}
+        className={`bg-${props.bgColor} ${props.underline} w-${props.width || "[100%]"} hover:bg-${props.bgColorHover} ${props.pointer} ${props.disabled} outline-${props.outlineColor} rounded-md text-md font-sans font-semibold sm:text-lg p-2 sm:p-2`}
         href={props.href}
       >
         {props.children}
@@ -18,8 +17,7 @@ const Button = props => {
       <Link
         to={props.to}
         exact={props.exact}
-        className={`button btn--${props.size || 'default'} ${props.inverse &&
-          'button--inverse'} ${props.danger && 'button button-danger'}`}
+        className={`bg-${props.bgColor} w-${props.width || "[100%]"} hover:bg-${props.bgColorHover} ${props.pointer} ${props.disabled} outline-${props.outlineColor} rounded-md text-md font-sans font-semibold sm:text-lg p-2 sm:p-2`}
       >
         {props.children}
       </Link>
@@ -27,8 +25,7 @@ const Button = props => {
   }
   return (
     <button
-      className={`btn btn-${props.size || 'default'} ${props.inverse &&
-        'btn-outline-primary'} ${props.danger && 'btn-danger'}`}
+      className={`${props.bgColor} hover:bg-${props.bgColorHover} w-[100%] sm:w-${props.width || "[100%]"} ${props.pointer} ${props.disabled} outline-${props.outlineColor} rounded-md text-md font-sans font-semibold sm:text-lg my-2 p-2 sm:p-2`}
       type={props.type}
       onClick={props.onClick}
       disabled={props.disabled}

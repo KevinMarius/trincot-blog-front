@@ -20,7 +20,7 @@ export default function Footer() {
         <div className='grid grid-cols-4 w-[100%] px-6 pb-7 bg-zinc-800 text-gray-200'>
             <div className='col-span-full md:col-span-2 lg:col-span-1'>
                 <div className=' mt-10 mx-3'>
-                    <a href='/'><img className='w-[80%] mx-auto' src={process.env.PUBLIC_URL + 'output-onlinepngtools.png'} alt='572-768x591' /></a>
+                    <a href='/'><img className='w-[80%] mx-auto' src={process.env.PUBLIC_URL + '/output-onlinepngtools.png'} alt='572-768x591' /></a>
                     <p className='text-white text-sm font-medium'>You can also use variant modifiers to target media queries like responsive breakpoints. You can also use variant modifiers.</p>
                 </div>
             </div>

@@ -48,7 +48,7 @@ export default function Sidebar() {
                     <div className='flex relative items-center mt-2 pt-2'>
                     <img className='w-20 h-20 object-fill rounded-md' src={process.env.PUBLIC_URL + 'eilis-garvey-4x6aA37sMPg-unsplash.jpg'} alt='image' />
                     <div className='ml-4'>
-                        <a className='decoration-slice' href='/'><h6 className='text-2xl font-bold'>{bestItem.title}</h6></a>
+                        <a className='decoration-slice' href={`blog/post/${bestItem._id}`}><h6 className='text-2xl font-bold'>{bestItem.title}</h6></a>
                         <div className='flex mt-3'>
                             <FaClock />
                             <p className='text-sm ml-2 font-alata'> 8 Dec 2016</p>

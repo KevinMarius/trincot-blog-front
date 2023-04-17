@@ -8,9 +8,9 @@ export default function FirstNav(props) {
                 <nav className='flex justify-between text-white'>
                     <button onClick={props.handleOpenClick} className='md:hidden'><FaBars /></button>
                     <div className="hidden h-15 md:flex font-alata items-center space-x-4">
-                        <a className='hover:text-purple-500' href='about'>About</a>
-                        <a className='hover:text-purple-500' href='blog'>Blog</a>
-                        <a className='hover:text-purple-500' href='contact'>Contact</a>
+                        <a className='hover:text-purple-500' href='/about'>About</a>
+                        <a className='hover:text-purple-500' href='/blog'>Blog</a>
+                        <a className='hover:text-purple-500' href='/contact'>Contact</a>
                     </div>
                     <div className='flex items-center justify-between'>
                         <a className='px-1' href='/'><FaFacebook /></a>

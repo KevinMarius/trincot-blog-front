@@ -35,8 +35,8 @@ export default function BottomNav() {
                 Home
               </a>
               {categories.map((item) => (
-                <div className='group relative'>
-                  <a onMouseEnter={(e) => getPostData(item._id)} key={item._id} className='hover:bg-purple-500 hover:no-underline text-white active:bg-purple-500 transition duration-500 flex h-14 items-center px-1' href='link1'>
+                <div className='group relative' key={item._id}>
+                  <a onMouseEnter={(e) => getPostData(item._id)} className='hover:bg-purple-500 hover:no-underline text-white active:bg-purple-500 transition duration-500 flex h-14 items-center px-1' href='link1'>
                     {item.title}
                     <RiArrowDownSFill />
                   </a>
@@ -45,7 +45,7 @@ export default function BottomNav() {
                       {postByCategory?.map((datas) => (
                         <a key={datas._id} href='/'>
                         <div className='relative group my-3 px-2'>
-                          <img src={process.env.PUBLIC_URL + 'eilis-garvey-4x6aA37sMPg-unsplash.jpg'} className=' object-fill w-96 h-auto' />
+                          <img src={process.env.PUBLIC_URL + '/eilis-garvey-4x6aA37sMPg-unsplash.jpg'} className=' object-fill w-96 h-auto' />
                           <div className='absolute bottom-0 justify-center left-0 right-0 mx-2 bg-black opacity-0 group-hover:opacity-40 duration-500'>
                             <h5 className='text-white text-lg font-semibold font-alata px-1'>{datas.title}</h5>
                             <p className='text-white text-sm px-1'>{datas.content}</p>

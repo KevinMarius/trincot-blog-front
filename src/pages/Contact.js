@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../components/UiElement/button';
+
 function Contact() {
     return (
         <React.Fragment>
@@ -10,6 +12,7 @@ function Contact() {
                         <input type='text' className='p-3 my-1 rounded-lg shadow-lg shadow-purple-400 text-sm bottom-0 focus:outline-none focus:shadow-purple-400' placeholder='Enter your name'/>
                         <input type='email' className='p-3 my-1 rounded-lg shadow-lg shadow-purple-400 text-sm bottom-0 focus:outline-none focus:shadow-purple-400' placeholder='Enter your email address'/>
                         <textarea rows={8} className='p-3 shadow-lg my-1 rounded-lg shadow-purple-400 text-sm bottom-0 focus:outline-none focus:shadow-purple-400' placeholder='Enter your idear'/>
+                        <Button bgColor="purple-400" bgColorHover="purple-500">Send</Button>
                     </form>
                 </div>
                 <div className=' col-span-1'>

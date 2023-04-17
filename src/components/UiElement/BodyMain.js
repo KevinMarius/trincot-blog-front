@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar';
 import { FaComment, FaUserAlt, FaClock } from 'react-icons/fa';
+import Button from './button';
 
 export default function BodyMain() {
   return (
@@ -31,7 +32,7 @@ export default function BodyMain() {
             <p className='text-md mt-2'>
               You can also use variant modifiers to target media queries like responsive breakpoints.
             </p>
-            <button className='bg-purple-500 py-1 px-3 rounded-md font-alata mt-3 text-white hover:bg-purple-600'>Read more</button>
+            <Button bgColor="purple-400" width="auto" type="submit" bgColorHover="purple-500">Read more</Button>
           </div>
         </div>
         <div className='col-span-full md:col-span-1'>

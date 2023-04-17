@@ -59,7 +59,7 @@ const Input = (props) => {
     const element = props.element === "input" ?
         (
             <input
-                className={`p-3 mt-1 border w-[100%] border-gray-300 rounded-lg placeholder:font-alata placeholder:text-md focus:outline focus:shadow-md focus:outline-purple-400 ${!inputState.isValid && inputState.isTouched && 'invalid:border-pink-500 invalid:text-pink-600'}`}
+                className={`p-3 mt-1 border w-full border-gray-300 rounded-lg placeholder:font-alata placeholder:text-md focus:outline focus:shadow-md focus:outline-purple-400 ${!inputState.isValid && inputState.isTouched && 'border-pink-500 text-pink-600'}`}
                 id={props.id}
                 type={props.type}
                 placeholder={props.placeholder}
@@ -68,7 +68,7 @@ const Input = (props) => {
                 value={inputState.value}
             />
         ) : props.element === "select" ? (
-            <select id={props.id} value={inputState.value} onChange={changeHandle} onBlur={touchHandle} className={`p-3 mt-1 border w-[100%] border-gray-300 rounded-lg placeholder:font-alata placeholder:text-md focus:outline focus:shadow-md focus:outline-purple-400 ${!inputState.isValid && inputState.isTouched && 'invalid:border-pink-500 invalid:text-pink-600'}`} aria-label="Default select example">
+            <select id={props.id} value={inputState.value} onChange={changeHandle} onBlur={touchHandle} className={`p-3 mt-1 border w-[100%] border-gray-300 rounded-lg placeholder:font-alata placeholder:text-md focus:outline focus:shadow-md focus:outline-purple-400 ${!inputState.isValid && inputState.isTouched && 'invalid:border-pink-500 invalid:text-pink-600 focus:outline-pink-600'}`} aria-label="Default select example">
                 <option>Select the {props.label}</option>
                 {array}
             </select>
@@ -79,14 +79,15 @@ const Input = (props) => {
                 id={props.id}
                 rows={props.rows || 3}
                 onChange={changeHandle}
+                placeholder={props.placeholder}
                 onBlur={touchHandle}
                 value={inputState.value}
             />
         )
 
     return (
-        <div className={`form-group`}>
-            <label htmlFor={props.id}>{props.label}</label>
+        <div className='my-3 flex flex-col w-full'>
+            <label className='font-semibold font-alata text-sm' htmlFor={props.id}>{props.label}</label>
             {element}
             {!inputState.isValid && inputState.isTouched && <p className="text-pink-600 text-sm">{props.errorText}</p>}
         </div>
