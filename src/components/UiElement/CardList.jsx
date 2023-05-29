@@ -1,7 +1,5 @@
-import Container from 'react-bootstrap/Container';
 import React, { useCallback, useState, useMemo } from 'react';
 import Cards from './Cards';
-import Row from 'react-bootstrap/Row';
 import Pagination from './Pagination';
 
 function CardList({ Productsdata, textFilter, selectFilter, search_parameters }) {

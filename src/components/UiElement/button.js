@@ -25,7 +25,7 @@ const Button = props => {
   }
   return (
     <button
-      className={`${props.bgColor} hover:bg-${props.bgColorHover} w-[100%] sm:w-${props.width || "[100%]"} ${props.pointer} ${props.disabled} outline-${props.outlineColor} rounded-md text-md font-sans font-semibold sm:text-lg my-2 p-2 sm:p-2`}
+      className={`${props.bgColor} hover:${props.bgColorHover} w-[100%] flex justify-center sm:w-${props.width || "[100%]"} ${props.pointer} ${props.disabled} outline outline-${props.outlineColor} rounded-md text-md text-white font-sans font-semibold sm:text-lg my-2 p-2 sm:p-2`}
       type={props.type}
       onClick={props.onClick}
       disabled={props.disabled}

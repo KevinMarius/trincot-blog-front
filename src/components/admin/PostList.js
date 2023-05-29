@@ -5,10 +5,6 @@ import PostItem from './PostItem';
 import Button from '../UiElement/button';
 import Pagination from '../UiElement/Pagination';
 
-import Container from 'react-bootstrap/Container';
-import Table from 'react-bootstrap/Table';
-import Card from 'react-bootstrap/Card';
-
 import { useHttpClient } from '../../hooks/http-hook';
 import AuthContext from '../../context/Auth';
 import LoadingSpinner from '../UiElement/loadingSpinner';
@@ -70,63 +66,70 @@ const PostList = (props) => {
 
     if (Productsdata.length == 0) {
         return (
-            <Container className='mt-4'>
-                <Card className="text-center">
-                    <Card.Header>Empty !!</Card.Header>
-                    <Card.Body>
-                        <Card.Title>No categories found. Maybe create one?</Card.Title>
-                        <Button to="/dashboard/post/add">Share Post</Button>
-                    </Card.Body>
-                </Card>
-            </Container>
+            <div href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Empty !!</h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">No categories found. Maybe create one?</p>
+                <Button to="/dashboard/post/add">Share Post</Button>
+            </div>
+
         );
     }
 
     return (
         <React.Fragment>
             <ErrorModal error={error} onclear={clearError} />
-
-
             {isLoading ? <LoadingSpinner /> :
-            <div>
-                <Table striped bordered hover size="sm" className='mt-3'>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>picture</th>
-                            <th>Title</th>
-                            <th>Content</th>
-                            <th>Published</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {currentTableData.map((item, index) => (
-                            <PostItem
-                                key={item._id}
-                                item={item}
-                                index={index}
-                                currentUserId={currentUser.userData.userExist}
-                                handleEditClick={(e) => handleEditClick(e, item._id)}
-                                error={error}
-                                clearError={clearError}
-                                showDeleteWarningHandler={showDeleteWarningHandler}
-                                onCancel={cancelDeleteHandler}
-                                onDelete={(e) => confirmDeleteHandler(e, item._id)}
-                                cancelDeleteHandler={cancelDeleteHandler}
-                                showConfirmModal={showConfirmModal}
-                            />
-                        ))}
-                    </tbody>
-                </Table>
-                {<Pagination
-                    className="pagination-bar"
-                    currentPage={currentPage}
-                    totalCount={Productsdata.length}
-                    pageSize={PageSize}
-                    onPageChange={page => setCurrentPage(page)}
-                  />}
-            </div>
+                <div className='mt-6'>
+                    <table className="w-full mt-2 text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="px-6 py-4">
+                                    #
+                                </th>
+                                <th scope="col" className="px-6 py-4">
+                                    Image
+                                </th>
+                                <th scope="col" className="px-6 py-4">
+                                    Title
+                                </th>
+                                <th scope="col" className="px-6 py-4">
+                                    Content
+                                </th>
+                                <th scope="col" className="px-6 py-4">
+                                    Published
+                                </th>
+                                <th scope="col" className="px-6 py-4">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {currentTableData.map((item, index) => (
+                                <PostItem
+                                    key={item._id}
+                                    item={item}
+                                    index={index}
+                                    currentUserId={currentUser.userData.userExist}
+                                    handleEditClick={(e) => handleEditClick(e, item._id)}
+                                    error={error}
+                                    clearError={clearError}
+                                    showDeleteWarningHandler={showDeleteWarningHandler}
+                                    onCancel={cancelDeleteHandler}
+                                    onDelete={(e) => confirmDeleteHandler(e, item._id)}
+                                    cancelDeleteHandler={cancelDeleteHandler}
+                                    showConfirmModal={showConfirmModal}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                    {<Pagination
+                        className="pagination-bar"
+                        currentPage={currentPage}
+                        totalCount={Productsdata.length}
+                        pageSize={PageSize}
+                        onPageChange={page => setCurrentPage(page)}
+                    />}
+                </div>
             }
         </React.Fragment>
     );

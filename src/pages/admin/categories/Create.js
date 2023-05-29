@@ -1,5 +1,3 @@
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Input from "../../../components/Form/input";
 import Button from "../../../components/UiElement/button";
 import { useEffect, useState, useContext } from "react";
@@ -63,13 +61,13 @@ export default function Create() {
     }
   }
 
-  return <Container className="mt-3">
+  return <div className="mt-3">
     <ErrorModal error={error} onClear={clearError} />
     <div className="text-align-center">
       <h1>New category</h1>
     </div>
     {isLoading ? <LoadingSpinner /> :
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       
       <Input
         element="input"
@@ -91,7 +89,7 @@ export default function Create() {
         onInput={inputHandle}
       />
       <Button type="submit" primary disabled={!formState.isValid}>Saved</Button>
-    </Form>
+    </form>
   }
-  </Container>
+  </div>
 }

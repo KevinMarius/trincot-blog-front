@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import LoadingSpinner from '../../../components/UiElement/loadingSpinner';
 import { useHttpClient } from "../../../hooks/http-hook";
 import SearchBar from '../../../components/UiElement/SearchBar';
-import Container from 'react-bootstrap/Container';
 
 import PostList from "../../../components/admin/PostList";
 
@@ -45,8 +44,8 @@ function All() {
   return (
     <React.Fragment>
       {isLoading ? <LoadingSpinner /> :
-        <Container className='mt-3'>
-          <h3>All Posts</h3>
+        <div className='mt-3'>
+          <h3 className='text-2xl font-semibold mt-2'>All Posts</h3>
           <SearchBar
             textFilter={textFilter}
             categoryFilter={categoryFilter}
@@ -62,7 +61,7 @@ function All() {
             selectFilter={categoryFilter}
             onDelete={postDeleteHandle}
           />
-        </Container>
+        </div>
       }
     </React.Fragment>
   );

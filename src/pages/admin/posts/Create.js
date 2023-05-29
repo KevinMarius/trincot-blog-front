@@ -1,5 +1,3 @@
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Input from "../../../components/Form/input";
 import Button from "../../../components/UiElement/button";
 import ImageUpload from "../../../components/Form/imageUpload";
@@ -65,11 +63,11 @@ export default function Create() {
     getCategoriesData()
   }, [sendRequest]);
 
-  return <Container className="mt-3 px-5">
+  return <div className="bg-slate-50 w-full p-4 shadow-gray-400 rounded-md shadow-sm my-6">
     <div className="text-align-center">
       <h1 className="text-3xl font-bold font-sans">New post</h1>
     </div>
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input
         element="input"
         type="text"
@@ -105,7 +103,7 @@ export default function Create() {
         onInput={inputHandle}
         items={categories}
       />
-      <Button type="submit" primary disabled={!formState.isValid}>Save</Button>
-    </Form>
-  </Container>
+      <Button type="submit" bgColor="bg-purple-500" disabled={!formState.isValid}>Save</Button>
+    </form>
+  </div>
 }

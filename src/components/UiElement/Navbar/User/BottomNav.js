@@ -35,23 +35,23 @@ export default function BottomNav() {
                 Home
               </a>
               {categories.map((item) => (
-                <div className='group relative' key={item._id}>
-                  <a onMouseEnter={(e) => getPostData(item._id)} className='hover:bg-purple-500 hover:no-underline text-white active:bg-purple-500 transition duration-500 flex h-14 items-center px-1' href='link1'>
+                <div className='group-one relative' key={item._id}>
+                  <a onMouseEnter={(e) => getPostData(item._id)} className='hover:bg-purple-500 hover:no-underline text-white active:bg-purple-500 transition duration-500 flex h-14 items-center px-1' href={`/blog/category/${item._id}`}>
                     {item.title}
                     <RiArrowDownSFill />
                   </a>
-                  <div className=" hidden group-hover:inline-block max-w-screen-md absolute z-20">
+                  <div className=" hidden group-one-hover:inline-block w-[500px] absolute z-20">
                     <div className='hidden md:flex bg-transparent'>
                       {postByCategory?.map((datas) => (
-                        <a key={datas._id} href='/'>
-                        <div className='relative group my-3 px-2'>
-                          <img src={process.env.PUBLIC_URL + '/eilis-garvey-4x6aA37sMPg-unsplash.jpg'} className=' object-fill w-96 h-auto' />
-                          <div className='absolute bottom-0 justify-center left-0 right-0 mx-2 bg-black opacity-0 group-hover:opacity-40 duration-500'>
-                            <h5 className='text-white text-lg font-semibold font-alata px-1'>{datas.title}</h5>
-                            <p className='text-white text-sm px-1'>{datas.content}</p>
+                        <a key={datas._id} href={`/blog/post/${datas._id}`}>
+                        <div className='relative group-two my-3 px-2'>
+                          <img src={process.env.PUBLIC_URL + '/eilis-garvey-4x6aA37sMPg-unsplash.jpg'} className=' object-fill w-64 h-auto' />
+                          <div className='absolute bottom-0 justify-center left-0 right-0 py-3 mx-2 bg-black opacity-60 hidden group-two-hover:block duration-500'>
+                            <h5 className='text-white text-center text-2xl font-bold font-alata px-1'>{datas.title}</h5>
+                            <p className='text-white text-center text-sm px-1'>{datas.content}</p>
                           </div>
                         </div>
-                      </a>
+                        </a>
                       ))}
                     </div>
                   </div>

@@ -1,6 +1,4 @@
-import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
-import Form from "react-bootstrap/Form";
 import Input from "../../../components/Form/input";
 import Button from "../../../components/UiElement/button";
 import { useEffect, useState, useContext } from "react";
@@ -68,12 +66,13 @@ export default function Update() {
   }
 
   return (
-    <Container className="mt-3">
+    <div className="mt-3">
       <div className="text-align-center">
-        <h1>Update category</h1>
+        <h1 className="text-2xl font-semibold mt-2">Update category</h1>
       </div>
       {isLoading ? <LoadingSpinner /> :
-        <Form onSubmit={handleSubmit}>
+        <div className="bg-slate-50 mt-3 rounded-sm p-3">
+          <form onSubmit={handleSubmit}>
           <Input
             element="input"
             type="text"
@@ -96,9 +95,10 @@ export default function Update() {
             initialValue={formState.inputs.description.value}
             initialValid={formState.inputs.description.isValid}
           />
-          <Button type="submit" inverse disabled={!formState.isValid}>Saved</Button>
-        </Form>
+          <Button type="submit" bgColor="bg-purple-500" disabled={!formState.isValid}>Saved</Button>
+        </form>
+        </div>
       }
-    </Container>
+    </div>
   )
 }

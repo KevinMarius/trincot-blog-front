@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import Form from "react-bootstrap/Form";
 import Button from "../../../components/UiElement/button";
 import AuthContext from "../../../context/Auth";
 import LoadingSpinner from "../../../components/UiElement/loadingSpinner";
@@ -144,7 +143,7 @@ function UserProfile() {
 							</p>
 							<div className="collapse" id="collapseExample">
 								<div className="card card-body">
-									<Form onSubmit={handleChangePassword}>
+									<form onSubmit={handleChangePassword}>
 										<Input
 											element="input"
 											type="password"
@@ -187,7 +186,7 @@ function UserProfile() {
 												disabled={!formState.isValid}
 											>Saved</Button>
 										}
-									</Form>
+									</form>
 								</div>
 							</div>
 						</div>

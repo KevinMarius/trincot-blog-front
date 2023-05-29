@@ -10,23 +10,28 @@ import "./assets/Sidebar.css"
 import Sidebar from "./components/admin/Sidebar";
 import footer from "./components/UiElement/Footer/Admin/User/Footer";
 import React, { useState, useContext } from "react";
-import Container from 'react-bootstrap/Container';
 
 //================================= import UiElement component =============================
 import Navbars from "./components/UiElement/Navbar/Admin/Navbar";
+
+import Nav from "./components/UiElement/Navbar/Admin/Nav";
 
 //================================= import context ======================================
 import AuthContext from './context/Auth'
 
 function Admin() {
-  const [ currentUser, setCurrentUser ] = useContext(AuthContext);
+  const [currentUser, setCurrentUser] = useContext(AuthContext);
+  const [isNotOpen, setIsNotOpen] = useState(false)
+    const handleToggleChange = () => {
+        setIsNotOpen(!isNotOpen)
+    }
   const navigate = useNavigate();
 
 
   const handleLogoutClick = () => {
     localStorage.removeItem('userLogged');
     setCurrentUser(null);
-    
+
     navigate("/");
   };
 
@@ -34,24 +39,23 @@ function Admin() {
     navigate(`/dashboard/user/profile`);
   }
 
-  const size = useMediaPredicate("(max-width: 800px)");
+  const size = useMediaPredicate("(max-width: 767px)");
 
   return (
     <React.Fragment>
-      <Container fluid className="main">
-        <div>
-          <Sidebar size={size} onClick={handleLogoutClick} />
+      <div className="w-full flex">
+        <Nav profile={handleProfileClick} user={currentUser.userData.userExist} onClickable={handleToggleChange} onClick={handleLogoutClick} />
+      </div>
+      <div className="flex bg-slate-100 h-screen">
+        <div className={isNotOpen || size ? "w-16" : "md:w-56"}>
+          <Sidebar size={size} isNotOpen={isNotOpen} onClick={handleLogoutClick} />
         </div>
-        <div className="right-content">
-          <div>
-            <Navbars profile={handleProfileClick} user={currentUser.userData.userExist} onClick={handleLogoutClick} />
-          </div>
-          <div className="bodyContent">
-            <Outlet />
-          </div>
+        <div className="flex justify-center w-5/6 p-4">
+          <Outlet />
         </div>
-        <footer />
-      </Container>
+      </div>
+
+      <footer />
     </React.Fragment>
   );
 }

@@ -1,5 +1,3 @@
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Input from "../../../components/Form/input";
 import Button from "../../../components/UiElement/button";
 import ImageUpload from "../../../components/Form/imageUpload";
@@ -89,12 +87,12 @@ export default function Create() {
     getRolesData()
   }, [sendRequest]);
 
-  return <Container className="p-5">
+  return <div className="p-5">
     <ErrorModal error={error} onClear={clearError} />
     <div className="text-align-center">
       <h1>New user</h1>
     </div>
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input
         element="input"
         type="text"
@@ -181,6 +179,6 @@ export default function Create() {
         items={roles}
       />
       <Button type="submit" primary disabled={!formState.isValid}>Save</Button>
-    </Form>
-  </Container>
+    </form>
+  </div>
 }

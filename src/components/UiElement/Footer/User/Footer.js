@@ -31,7 +31,7 @@ export default function Footer() {
                 <div className='block'>
                     <ul className='ml-10'>
                         {categories.map((item) => (
-                            <a href='/' className='py-2 text-sm font-semibold font-alata hover:no-underline hover:text-purple-500' key={item._id}>
+                            <a href={`/blog/category/${item._id}`} className='py-2 text-sm font-semibold font-alata hover:no-underline hover:text-purple-500' key={item._id}>
                                 <li className='list-disc my-3'>{item.title}</li>
                             </a>
                         ))}

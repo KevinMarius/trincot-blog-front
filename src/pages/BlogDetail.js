@@ -11,6 +11,8 @@ import { FaUserAlt, FaClock, FaComment, FaHeart } from "react-icons/fa";
 import Button from "../components/UiElement/button";
 import Input from "../components/Form/input";
 
+import moment from "moment";
+
 function BlogDetail() {
   const [post, setPost] = useState("");
   const [comments, setComments] = useState([]);
@@ -85,7 +87,7 @@ function BlogDetail() {
           <div className="flex flex-col bg-slate-300 border border-zinc-600 rounded-r-md ml-2 px-3 py-1">
             <h3 className="text-md font-extrabold text-zinc-900 mb-2">{itemComment.name}</h3>
             <p className="text-sm text-black text-justify font-semibold mb-2">{itemComment.content}</p>
-            <div className="flex flex-row-reverse"><p className="text-zinc-600 text-xs font-light">il y'a 10 jours</p></div>
+            <div className="flex flex-row-reverse"><p className="text-zinc-600 text-xs font-light">{moment(itemComment.createdAt, "YYYYMMDD").fromNow()}</p></div>
           </div>
         </div>
       )
@@ -120,7 +122,7 @@ function BlogDetail() {
             </div>
             <div className="flex mx-1 sm:mx-2 items-center">
               <FaClock className="mr-1" />
-              <p>01/10/2009</p>
+              <p>{moment(post.createdAt, "YYYYMMDD").fromNow()}</p>
             </div>
           </div>
           <div className="flex">

@@ -85,7 +85,7 @@ function Login() {
                 validators={[VALIDATOR_REQUIRE(), VALIDATOR_PASSWORD()]}
                 onInput={inputHandle}
               />
-              <Button bgColor="purple-400" type="submit" bgColorHover="purple-500" primary disabled={!formState.isValid} pointer={formState.isValid ? 'cursor-pointer' : 'cursor-not-allowed'}>Login</Button>
+              <Button bgColor="bg-purple-400" type="submit" bgColorHover="bg-purple-500" primary disabled={!formState.isValid} pointer={formState.isValid ? 'cursor-pointer' : 'cursor-not-allowed'}>Login</Button>
             </form>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserCircle, FaClock } from 'react-icons/fa';
 import { useHttpClient } from '../../hooks/http-hook';
+import moment from 'moment';
 
 export default function Sidebar() {
     const [lastPosts, setLastPosts] = useState([]);
@@ -17,9 +18,9 @@ export default function Sidebar() {
         }
         const getBestPostsData = async () => {
             await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/post/getBestPost`)
-            .then((response) => {
-                setBestPosts(response.posts);
-            });
+                .then((response) => {
+                    setBestPosts(response.posts);
+                });
         }
         getBestPostsData();
         getLastPostsData();
@@ -45,19 +46,19 @@ export default function Sidebar() {
             <div className='px-3 my-8'>
                 <h4 className='text-2xl font-alata font-semibold mb-6'>Bests posts</h4>
                 {bestPosts.map((bestItem) => (
-                    <div className='flex relative items-center mt-2 pt-2'>
-                    <img className='w-20 h-20 object-fill rounded-md' src={process.env.PUBLIC_URL + 'eilis-garvey-4x6aA37sMPg-unsplash.jpg'} alt='image' />
-                    <div className='ml-4'>
-                        <a className='decoration-slice' href={`blog/post/${bestItem._id}`}><h6 className='text-2xl font-bold'>{bestItem.title}</h6></a>
-                        <div className='flex mt-3'>
-                            <FaClock />
-                            <p className='text-sm ml-2 font-alata'> 8 Dec 2016</p>
+                    <div key={bestItem._id} className='flex relative items-center mt-2 pt-2'>
+                        <img className='w-20 h-20 object-fill rounded-md' src={process.env.REACT_APP_ASSET_URL + `/${bestItem.picture}`} alt='image' />
+                        <div className='ml-4'>
+                            <a className='decoration-slice' href={`blog/post/${bestItem._id}`}><h6 className='text-2xl font-bold'>{bestItem.title}</h6></a>
+                            <div className='flex mt-3'>
+                                <FaClock />
+                                <p className='text-sm ml-2 font-alata'>{moment(bestItem.createdAt, "YYYYMMDD").fromNow()}</p>
+                            </div>
+                        </div>
+                        <div className='absolute w-9 h-9 top-0 left-0 rounded-full bg-purple-500'>
+                            <p className='text-white font-bold text-center mt-1'>{bestItem.comment_count}</p>
                         </div>
                     </div>
-                    <div className='absolute w-9 h-9 top-0 left-0 rounded-full bg-purple-500'>
-                        <p className='text-white font-bold text-center mt-1'>{bestItem.comment_count}</p>
-                    </div>
-                </div>
                 ))}
             </div>
         </React.Fragment>

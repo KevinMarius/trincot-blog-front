@@ -1,9 +1,4 @@
-import Container from "react-bootstrap/Container";
-import Table from 'react-bootstrap/Table';
-import Card from 'react-bootstrap/Card';
-
 import { useParams } from "react-router-dom";
-import Form from "react-bootstrap/Form";
 import Input from "../../../components/Form/input";
 import Button from "../../../components/UiElement/button";
 import ImageUpload from "../../../components/Form/imageUpload";
@@ -104,12 +99,12 @@ export default function Update() {
 }
 
 
-  return <Container className="mt-3">
+  return <div className="mt-3">
     <ErrorModal error={error} onClear={clearError}/>
     <div className="text-align-center">
       <h1>Update post</h1>
     </div>
-    {isLoading ? <LoadingSpinner /> : <Form onSubmit={handleSubmit}>
+    {isLoading ? <LoadingSpinner /> : <form onSubmit={handleSubmit}>
       <Input
         element="input"
         type="text"
@@ -152,7 +147,7 @@ export default function Update() {
         items={categories}
       />
       <Button type="submit" primary disabled={!formState.isValid}>Update</Button>
-    </Form>
+    </form>
     }
-  </Container>
+  </div>
 }
